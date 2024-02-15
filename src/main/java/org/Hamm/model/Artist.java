@@ -36,8 +36,6 @@ public class Artist {
     @Column(name="province", nullable = false)
     private Province province;
 
-    @Column(name="location", nullable = false)
-    private String location;
 
     @OneToOne(mappedBy = "artist")
     @JoinColumn(name = "id_post")
@@ -59,7 +57,6 @@ public class Artist {
         this.age = age;
         this.CCAA = CCAA;
         this.province = province;
-        this.location = location;
         this.post = post;
     }
 
@@ -135,13 +132,6 @@ public class Artist {
         this.province = province;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String city) {
-        this.location = city;
-    }
 
     public Post getPost() {
         return post;
@@ -162,7 +152,6 @@ public class Artist {
                 ", age=" + age +
                 ", CCAA='" + CCAA + '\'' +
                 ", province='" + province + '\'' +
-                ", location='" + location + '\'' +
                 ", post=" + post +
                 '}';
     }

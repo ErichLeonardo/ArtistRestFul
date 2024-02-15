@@ -21,8 +21,6 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     List<Post> findAll();
 
-    Optional<List<Post>> findByArtistLocation(String location);
-
     Optional<List<Post>> findByArtistCCAA(CCAA CCAA);
 
     Optional<List<Post>> findByArtistProvince(Province province);

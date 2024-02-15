@@ -78,14 +78,6 @@ public class ArtistService {
         }
     }
 
-    public List<Artist> getArtistsByLocation (String location) {
-        Optional<List<Artist>> artists = repo.findByLocation(location);
-        if(artists.isPresent()) {
-            return artists.get();
-        }else{
-            throw new RuntimeException("Artist not found");
-        }
-    }
 
     public List<Artist> getArtistsByProvince(Province province) {
         Optional<List<Artist>> artists = repo.findByProvince(province);
@@ -107,7 +99,7 @@ public class ArtistService {
 
     @Transactional
     @Modifying
-    @Query("UPDATE Artist a SET a.artistName = :artistName, a.name = :name, a.email = :email, a.password= :password, a.image = :image, a.age = :age, a.province = :province, a.location = :location WHERE a.id = :id")
+    @Query("UPDATE Artist a SET a.artistName = :artistName, a.name = :name, a.email = :email, a.password= :password, a.image = :image, a.age = :age, a.province = :province WHERE a.id = :id")
     public Artist createOrUpdateArtist(Artist artist) {
         Artist end;
         if(artist.getId() > 0){
@@ -121,7 +113,6 @@ public class ArtistService {
                 artist.setPassword(Hash.hashPassword(artist.getPassword()));
                 artist.setAge(artist.getAge());
                 artist.setProvince(artist.getProvince());
-                artist.setLocation(artist.getLocation());
                 end = repo.save(artist);
             }else{
                 throw new RuntimeException("Artist not found with id: " + artist.getId());

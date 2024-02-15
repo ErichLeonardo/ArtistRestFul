@@ -53,11 +53,6 @@ public class ArtistController {
         return ResponseEntity.ok(artist);
     }
 
-    @GetMapping("/location")
-    public ResponseEntity<List<Artist>> getArtistsByLocation(String location) {
-        List<Artist> artists = service.getArtistsByLocation(location);
-        return ResponseEntity.ok(artists);
-    }
 
     @GetMapping("/ccaa")
     public ResponseEntity<List<Artist>> getArtistsByCCAA(CCAA CCAA) {

@@ -69,15 +69,6 @@ public class PostService {
         }
     }
 
-    public List<Post> getPostsByArtistLocation(String location){
-        Optional<List<Post>> posts = repo.findByArtistLocation(location);
-        if(posts.isPresent()) {
-            return posts.get();
-        }else{
-            throw new RuntimeException("Post not found");
-        }
-    }
-
     public List<Post> getPostsByArtistCCAA(CCAA CCAA){
         Optional<List<Post>> posts = repo.findByArtistCCAA(CCAA);
         if(posts.isPresent()) {

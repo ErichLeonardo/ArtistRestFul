@@ -21,7 +21,6 @@ public interface ArtistRepository extends JpaRepository<Artist, Integer> {
 
     Optional<Artist> findByImage(String image);
     Optional<List<Artist>> findByCCAA(CCAA CCAA);
-    Optional<List<Artist>> findByLocation(String location);
 
     Optional<List<Artist>> findByProvince(Province province);
 
