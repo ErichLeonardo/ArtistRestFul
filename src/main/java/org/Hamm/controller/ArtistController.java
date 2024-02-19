@@ -72,7 +72,7 @@ public class ArtistController {
         return ResponseEntity.ok(artists);
     }
 
-    @PostMapping("/artist")
+    @PostMapping
     public ResponseEntity<Artist> createOrUpdateArtist(@RequestBody Artist artist) {
         Artist createdArtist = service.createOrUpdateArtist(artist);
         return ResponseEntity.ok(createdArtist);
