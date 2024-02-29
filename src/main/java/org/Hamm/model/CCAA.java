@@ -1,25 +1,25 @@
 package org.Hamm.model;
 
 public enum CCAA {
-    ANDALUCIA("Andalucía"),
-    ARAGON("Aragon"),
-    ASTURIAS("Asturias"),
-    BALEARES("Baleares"),
-    CANARIAS("Canarias"),
-    CANTABRIA("Cantabria"),
-    CASTILLA_Y_LEON("Castilla y Léon"),
-    CASTILLA_LA_MANCHA("Castilla la Mancha"),
-    CATALUNYA("Cataluña"),
-    COMUNITAT_VALENCIANA("Comunitat Valenciana"),
-    EXTREMADURA("Extremadura"),
-    GALICIA("Galicia"),
-    MADRID("Madrid"),
-    MURCIA("Murcia"),
-    NAVARRA("Navarra"),
-    PAIS_VASCO("Pais Vasco"),
-    RIOJA("Rioja"),
-    CEUTA("Ceuta"),
-    MELILLA("Melilla");
+    Andalucía("Andalucía"),
+    Aragón("Aragon"),
+    Asturias("Asturias"),
+    Baleares("Baleares"),
+    Canarias("Canarias"),
+    Cantabria("Cantabria"),
+    Castilla_y_Léon("Castilla y Léon"),
+    Castilla_la_Mancha("Castilla la Mancha"),
+    Cataluña("Cataluña"),
+    Comunitat_Valenciana("Comunitat Valenciana"),
+    Extremadura("Extremadura"),
+    Galicia("Galicia"),
+    Madrid("Madrid"),
+    Murcia("Murcia"),
+    Navarra("Navarra"),
+    País_Vasco("Pais Vasco"),
+    Rioja("Rioja"),
+    Ceuta("Ceuta"),
+    Melilla("Melilla");
 
     private String name;
 
