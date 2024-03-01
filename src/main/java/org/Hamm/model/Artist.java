@@ -1,5 +1,6 @@
 package org.Hamm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.Hamm.utils.Hash;
 
@@ -37,6 +38,7 @@ public class Artist {
     private Province province;
 
 
+    @JsonIgnore
     @OneToOne(mappedBy = "artist")
     @JoinColumn(name = "id_post")
     private Post post;

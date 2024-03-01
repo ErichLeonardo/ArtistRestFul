@@ -1,5 +1,6 @@
 package org.Hamm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Post {
 
     @Column(name="media_url", nullable = false)
     private String mediaUrl;
+
 
     @OneToOne
     @JoinColumn(name = "id_artist")
@@ -80,7 +82,7 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", mediaUrl='" + mediaUrl + '\'' +
-                ", artist=" + artist +
+                ", artist=" + artist.getId() +
                 '}';
     }
 }
