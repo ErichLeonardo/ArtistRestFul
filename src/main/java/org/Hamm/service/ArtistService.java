@@ -113,6 +113,7 @@ public class ArtistService {
                 artist.setPassword(Hash.hashPassword(artist.getPassword()));
                 artist.setAge(artist.getAge());
                 artist.setProvince(artist.getProvince());
+                artist.setCCAA(artist.getCCAA());
                 end = repo.save(artist);
             }else{
                 throw new RuntimeException("Artist not found with id: " + artist.getId());
