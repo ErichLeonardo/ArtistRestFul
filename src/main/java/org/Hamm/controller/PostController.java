@@ -65,7 +65,7 @@ public class PostController {
         return ResponseEntity.ok(posts);
     }
 
-    @PostMapping
+    @PutMapping
     public ResponseEntity<Post> createOrUpdatePost(@RequestBody Post post) {
         Post createdPost = service.createOrUpdatePost(post);
         return ResponseEntity.ok(createdPost);
