@@ -4,7 +4,9 @@ import org.Hamm.model.Artist;
 import org.Hamm.model.CCAA;
 import org.Hamm.model.Province;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,4 +30,6 @@ public interface ArtistRepository extends JpaRepository<Artist, Integer> {
 
     List<Artist> findAll();
     Optional<List<Artist>> findByAgeBetween(int minAge, int maxAge);
+    void deleteById(int id);
+
 }
