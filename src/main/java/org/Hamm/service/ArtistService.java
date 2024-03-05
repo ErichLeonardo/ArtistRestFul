@@ -20,8 +20,8 @@ public class ArtistService {
     ArtistRepository repo;
 
     public List<Artist> getAllArtists() {
-       List<Artist> artists = repo.findAll();
-       return artists;
+        List<Artist> artists = repo.findAll();
+        return artists;
     }
 
     public Artist getArtistById(int id) {
@@ -147,23 +147,23 @@ public class ArtistService {
         }
     }
 
-   public List<Artist> getArtistByCCAA(CCAA ccaa){
-       Optional<List<Artist>> artists = repo.findByCCAA(ccaa);
-       if(artists.isPresent()) {
-           return artists.get();
-       }else{
-           throw new RuntimeException("Artist not found");
-       }
-   }
+    public List<Artist> getArtistByCCAA(CCAA ccaa){
+        Optional<List<Artist>> artists = repo.findByCCAA(ccaa);
+        if(artists.isPresent()) {
+            return artists.get();
+        }else{
+            throw new RuntimeException("Artist not found");
+        }
+    }
 
-   public List<Artist> getArtistByProvince(Province province){
-       Optional<List<Artist>> artists = repo.findByProvince(province);
-       if(artists.isPresent()) {
-           return artists.get();
-       }else{
-           throw new RuntimeException("Artist not found");
-       }
-   }
+    public List<Artist> getArtistByProvince(Province province){
+        Optional<List<Artist>> artists = repo.findByProvince(province);
+        if(artists.isPresent()) {
+            return artists.get();
+        }else{
+            throw new RuntimeException("Artist not found");
+        }
+    }
 
     public List<Artist> getArtistsByAgeRange(int minAge, int maxAge) {
         Optional<List<Artist>> artists = repo.findByAgeBetween(minAge, maxAge);

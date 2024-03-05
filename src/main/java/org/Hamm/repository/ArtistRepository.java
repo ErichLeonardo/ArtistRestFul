@@ -32,4 +32,5 @@ public interface ArtistRepository extends JpaRepository<Artist, Integer> {
     Optional<List<Artist>> findByAgeBetween(int minAge, int maxAge);
     void deleteById(int id);
 
+
 }
