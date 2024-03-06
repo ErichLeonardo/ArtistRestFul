@@ -88,24 +88,20 @@ public class PostService {
     }
 
     @Transactional
-    @Modifying
-    @Query("UPDATE Post p SET p.title = :title, p.content = :content WHERE p.id = :id")
-    public Post createOrUpdatePost(Post post) {
-        Post end2;
-        if(post.getId() > 0){
-            Optional<Post> result = repo.findById(post.getId());
-            if(result.isPresent()){
-                post = result.get();
-                post.setTitle(post.getTitle());
-                post.setContent(post.getContent());
-                end2 = repo.save(post);
-            }else{
-                throw new RuntimeException("Post not found with id: " + post.getId());
-            }
-        } else{
-            end2 = repo.save(post);
+    public Post updatePost(Post post) {
+        Optional<Post> existingPost = repo.findById(post.getId());
+        if (existingPost.isPresent()) {
+            existingPost.get().setTitle(post.getTitle());
+            existingPost.get().setContent(post.getContent());
+            return repo.save(existingPost.get());
+        } else {
+            throw new RuntimeException("Post not found with id: " + post.getId());
         }
-        return end2;
+    }
+
+    @Transactional
+    public Post createPost(Post post) {
+        return repo.save(post);
     }
 
     public void deletePost(int id) {

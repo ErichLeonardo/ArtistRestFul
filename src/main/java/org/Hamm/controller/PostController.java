@@ -65,10 +65,16 @@ public class PostController {
         return ResponseEntity.ok(posts);
     }
 
-    @PutMapping
-    public ResponseEntity<Post> createOrUpdatePost(@RequestBody Post post) {
-        Post createdPost = service.createOrUpdatePost(post);
-        return ResponseEntity.ok(createdPost);
+    @PostMapping("/create")
+    public ResponseEntity<Artist> createPost(@RequestBody Post post) {
+        Post createdPost = service.createPost(post);
+        return ResponseEntity.ok(createdPost.getArtist());
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<Artist> updatePost(@RequestBody Post post) {
+        Post updatedPost = service.updatePost(post);
+        return ResponseEntity.ok(updatedPost.getArtist());
     }
 
     @DeleteMapping
