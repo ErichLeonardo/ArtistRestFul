@@ -100,29 +100,29 @@ public class ArtistService {
     @Transactional
     @Modifying
     @Query("UPDATE Artist a SET a.artistName = :artistName, a.name = :name, a.email = :email, a.password= :password, a.image = :image, a.age = :age, a.province = :province WHERE a.id = :id")
-    public Artist createOrUpdateArtist(Artist artist) {
-        Artist end;
-        if(artist.getId() > 0){
-            Optional<Artist> result = repo.findById(artist.getId());
-            if(result.isPresent()){
-                artist = result.get();
-                artist.setArtistName(artist.getArtistName());
-                artist.setName(artist.getName());
-                artist.setEmail(artist.getEmail());
-                artist.setImage(artist.getImage());
-                artist.setPassword(Hash.hashPassword(artist.getPassword()));
-                artist.setAge(artist.getAge());
-                artist.setProvince(artist.getProvince());
-                artist.setCCAA(artist.getCCAA());
-                end = repo.save(artist);
-            }else{
-                throw new RuntimeException("Artist not found with id: " + artist.getId());
-            }
-        } else{
-            end = repo.save(artist);
+    public Artist updateArtist(Artist artist) {
+        Optional<Artist> result = repo.findById(artist.getId());
+        if(result.isPresent()){
+            Artist a = result.get();
+            a.setArtistName(artist.getArtistName());
+            a.setName(artist.getName());
+            a.setEmail(artist.getEmail());
+            a.setPassword(artist.getPassword());
+            a.setImage(artist.getImage());
+            a.setAge(artist.getAge());
+            a.setProvince(artist.getProvince());
+            return a;
+        }else{
+            throw new RuntimeException("Artist not found with id: " + artist.getId());
         }
-        return end;
     }
+
+
+    //createArtist
+    public Artist createArtist(Artist artist) {
+        return repo.save(artist);
+    }
+
 
     @Transactional
     @Modifying

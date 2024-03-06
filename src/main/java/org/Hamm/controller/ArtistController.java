@@ -14,6 +14,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/artist")
+
 public class ArtistController {
     @Autowired
     ArtistService service;
@@ -73,11 +74,18 @@ public class ArtistController {
         return ResponseEntity.ok(artists);
     }
 
-    @PutMapping
-    public ResponseEntity<Artist> createOrUpdateArtist(@RequestBody Artist artist) {
-        Artist createdArtist = service.createOrUpdateArtist(artist);
+    @PostMapping("/create")
+    public ResponseEntity<Artist> createArtist(@RequestBody Artist artist) {
+        Artist createdArtist = service.createArtist(artist);
         return ResponseEntity.ok(createdArtist);
     }
+
+    @PostMapping("/update")
+    public ResponseEntity<Artist> updateArtist(@RequestBody Artist artist) {
+        Artist updatedArtist = service.updateArtist(artist);
+        return ResponseEntity.ok(updatedArtist);
+    }
+
 
     @PostMapping("/artist/password")
     public ResponseEntity<String> updatePassword(int id, String newPassword) {
